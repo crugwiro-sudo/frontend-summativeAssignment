@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer  ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="divider">
+                <nav>
+            <header>
+                <div class="right-section">
+                    <ul>
+                        YOUR MONEY, A LITTLE CLEARER
+                    </ul>
+                </div>
+                <div class="left-section">
+                    <div class="heading">
+                        <h1>Let's make room for what matters.</h1>
+                    </div>
+                        <div class="btn">
+                            <button id="add-transaction-btn"> +  Add transaction</button>
+                        </div>
+                </div>
+                <div class="subjective">
+                    <p>Here’s how your October is shaping up, Alex.</p>
+                </div>
+                <div class="month">
+                    <label for="month">Choose month to view previous transaction</label><br>
+                    <input type="month" name="month" id="month">
+                </div>
+            </header>
+        </nav>
+        <section class="summary-cards" aria-label="Monthly summary">
+            <article class="summary-card balance-card">
+                <h2>Remaining Balance</h2>
+                <p id="remaining-balance">0.00</p>
+            </article>
+            <article class="summary-card">
+                <h2>Income</h2>
+                <p id="total-income">0.00</p>
+            </article>
+            <article class="summary-card">
+                <h2>Expense</h2>
+                <p id="total-expenses">0.00</p>
+            </article>
+        </section>
+
+        <!-- <label for="transaction-search" id="search">Search Transactions using a regex pattern</label> -->
+        <input 
+            type="text"
+            id="transaction-search"
+            placeholder="Search Transaction using REGEX Pattern Eg: coffee|tea"
+            aria-describedby="search-status"
+        >
+        <p id="search-status" role="status" aria-live="polite"></p>
+
+        <section class="transactions" aria-labelledby="transactions-title">
+            <h2 id="transactions-title">Transactions</h2>
+            <p id="storage-message" role="status" aria-live="polite"></p>
+            <div class="transaction-columns">
+                <div class="transaction-column income-column">
+                    <h3>Income</h3>
+                    <ul class="income-list"></ul>
+                </div>
+                <div class="transaction-column expense-column">
+                    <h3>Expenses</h3>
+                    <ul class="expense-list"></ul>
+                </div>
+            </div>
+        </section>
+        <dialog class="form" id="transaction-dialog" aria-labelledby="transaction-title">
+        <div class="headings">
+            <h2 id="transaction-title">Add a transaction</h2>
+            <p>The small things add up. Keep track of money coming in and going out.</p>
+        </div>
+        <form action="#" id="transaction-form">
+        <label for="transaction-type">Transaction Type:</label>
+        <select id="transaction-type" name="transaction-type">
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+        </select>
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" required>
+        <label for="description">Description</label>
+        <input type="text" id="description" name="description" required>
+        <label for="category">
+            Category:
+        </label>
+        <select id="category" name="category">
+            <option value="food">Food</option>
+            <option value="transportation">Transportation</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="utilities">Utilities</option>
+            <option value="other">Other</option>
+        </select>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+        <label for="notes">
+            Notes (optional):
+        </label>
+        <textarea id="notes" name="notes"></textarea>
+
+        <section id="form-errors" role="alert" tabindex="-1" hidden>
+            <h3>Please Fix these errors: </h3>
+            <ul id="error-list"></ul>
+
+        </section>
+        <button type="button" id="cancel-btn">Cancel</button>
+        <button type="submit" id="save-btn">Save Transaction</button>
+        </form>
+        </dialog>
+    </div>
+</body>
+</html>
